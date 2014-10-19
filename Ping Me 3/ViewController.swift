@@ -9,10 +9,18 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    var eventLog = EventLogModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        println("asdf")
+        var localNotification:UILocalNotification = UILocalNotification()
+        localNotification.alertAction = "Testing notidfications on iOS8"
+        localNotification.alertBody = "Woww it works!!"
+        localNotification.fireDate = NSDate(timeIntervalSinceNow: 3)
+        UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
     }
 
     override func didReceiveMemoryWarning() {
@@ -20,6 +28,6 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
+    
 }
 

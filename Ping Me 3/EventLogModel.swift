@@ -9,9 +9,19 @@
 import Foundation
 
 class EventLogModel {
-    var events : [(timestamp: Int, entry: String)] = []
+    class func shared() -> EventLogModel {
+        return _sharedInstance
+    }
+    
+    var events : [(timestamp: NSDate, entry: String)]
     
     init() {
         self.events = []
     }
+    
+    func pushEvent(event: String) {
+        self.events.append((timestamp: NSDate(), entry: event))
+    }
 }
+
+let _sharedInstance: EventLogModel = { EventLogModel() }()

@@ -10,20 +10,23 @@ import UIKit
 
 class EventLogViewController: UITableViewController {
     
-    var exampleData = [String]()
-
+    var eventLog = EventLogModel.shared()
+    var dateFormatter = NSDateFormatter()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
+        dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
 
-        self.exampleData = ["asdf", "two"]
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        print(self.exampleData);
+        print(self.eventLog.events);
         self.tableView.reloadData()
     }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -41,15 +44,15 @@ class EventLogViewController: UITableViewController {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return self.exampleData.count
+        return self.eventLog.events.count
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Log Entry", forIndexPath: indexPath) as UITableViewCell
 
         // Configure the cell...
-        let entry = self.exampleData[indexPath.row]
-        cell.textLabel!.text = entry
+        let entry = self.eventLog.events[indexPath.row]
+        cell.textLabel!.text = dateFormatter.stringFromDate(entry.timestamp) + " " + entry.entry
         return cell
     }
 

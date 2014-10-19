@@ -15,6 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        //registering for sending user various kinds of notifications
+        application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: UIUserNotificationType.Sound|UIUserNotificationType.Alert|UIUserNotificationType.Badge, categories: nil))
         // Override point for customization after application launch.
         return true
     }
@@ -41,6 +43,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-
+    func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
+        println("received")
+        let alertController: UIAlertController = UIAlertController(title: "Alert", message: "asdf", preferredStyle: .Alert)
+        alertController.addAction(UIAlertAction(title: "ok", style: .Default, handler: navigateToWhatYouDoing))
+        let navController = application.windows[0].rootViewController as UINavigationController
+        navController.presentViewController(alertController, animated: true, completion: nil)
+    }
+    
+    func navigateToWhatYouDoing(alertAction: UIAlertAction!) {
+        
+        let navController = self.window?.rootViewController as UINavigationController
+        navController.performSegueWithIdentifier("Alert to What", sender: self)
+        //navController.pushViewController(<#viewController: UIViewController#>, animated: <#Bool#>)
+        println("asdfdfsdf")
+    }
 }
 

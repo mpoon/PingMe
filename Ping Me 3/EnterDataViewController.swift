@@ -10,8 +10,8 @@ import UIKit
 
 class EnterDataViewController: UIViewController {
     
-    //@IBOutlet var doneButton : UIBarButtonItem!
     @IBOutlet var doingText : UITextField!
+    var eventLog = EventLogModel.shared()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,19 +23,12 @@ class EnterDataViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    @IBAction func doneButtonTapped(sender : AnyObject) {
-        println(doingText.text)
-    }
-
-    /*
-    // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
+        eventLog.pushEvent(doingText.text)
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    */
 
 }
