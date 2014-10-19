@@ -20,7 +20,7 @@ class ViewController: UIViewController {
         var localNotification:UILocalNotification = UILocalNotification()
         localNotification.alertAction = "Testing notidfications on iOS8"
         localNotification.alertBody = "Woww it works!!"
-        localNotification.fireDate = NSDate(timeIntervalSinceNow: 3)
+        localNotification.fireDate = NSDate(timeIntervalSinceNow: 10)
         UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
     }
 
