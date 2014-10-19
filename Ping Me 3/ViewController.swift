@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UIViewController {
     
     var eventLog = EventLogModel()
+    var pingTimer = PingTimerModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
