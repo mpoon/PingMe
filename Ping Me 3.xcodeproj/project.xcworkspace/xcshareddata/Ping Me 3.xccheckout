@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>2AB730A7-C733-40D4-8D9C-22545BA24FAA</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Ping Me 3</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>87D006FFD24CF0C383255BD2180C200B73DB9F3D</key>
+		<string>https://github.com/mpoon/PingMe.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Ping Me 3.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>87D006FFD24CF0C383255BD2180C200B73DB9F3D</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/mpoon/PingMe.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>87D006FFD24CF0C383255BD2180C200B73DB9F3D</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>87D006FFD24CF0C383255BD2180C200B73DB9F3D</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Ping%20Me</string>
+		</dict>
+	</array>
+</dict>
+</plist>
