@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import CoreData
 
 class EventLogViewController: UITableViewController {
     
     var eventLog = EventLogModel.shared()
+    var persistentEventLog: [LogEntry] = []
     var dateFormatter = NSDateFormatter()
     
     override func viewDidLoad() {
@@ -23,8 +25,28 @@ class EventLogViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        print(self.eventLog.events);
         self.tableView.reloadData()
+        
+        var managedObjectContext : NSManagedObjectContext? = {
+            let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+            if let managedObjectContext = appDelegate.managedObjectContext {
+                return managedObjectContext
+            }
+            else {
+                return nil
+            }
+            }()
+        
+        let fetchRequest = NSFetchRequest(entityName: "LogEntry")
+        if let fetchResults = managedObjectContext!.executeFetchRequest(fetchRequest, error: nil) as? [LogEntry] {
+            persistentEventLog = fetchResults
+            persistentEventLog.sort({
+                item1, item2 in
+                let date1 = item1.date as NSDate
+                let date2 = item2.date as NSDate
+                return date1.compare(date2) == NSComparisonResult.OrderedDescending
+            })
+        }
     }
 
 
@@ -44,15 +66,19 @@ class EventLogViewController: UITableViewController {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return self.eventLog.events.count
+//        return self.eventLog.events.count
+        return self.persistentEventLog.count
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Log Entry", forIndexPath: indexPath) as UITableViewCell
 
         // Configure the cell...
-        let entry = self.eventLog.events[indexPath.row]
-        cell.textLabel!.text = dateFormatter.stringFromDate(entry.timestamp) + " " + entry.entry
+//        let entry = self.eventLog.events[indexPath.row]
+//        cell.textLabel!.text = dateFormatter.stringFromDate(entry.timestamp) + " " + entry.entry
+//        return cell
+        let entry = self.persistentEventLog[indexPath.row]
+        cell.textLabel!.text = dateFormatter.stringFromDate(entry.date) + " " + entry.tag
         return cell
     }
 

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		9D4499DB19F33BFD005B1F16 /* EnterDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4499DA19F33BFD005B1F16 /* EnterDataViewController.swift */; };
 		9D4499DD19F33FBB005B1F16 /* EventLogModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4499DC19F33FBB005B1F16 /* EventLogModel.swift */; };
+		9DC81F2A19F4C40A00C9AF91 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9DC81F2819F4C40A00C9AF91 /* Model.xcdatamodeld */; };
+		9DC81F2C19F4C47100C9AF91 /* LogEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC81F2B19F4C47100C9AF91 /* LogEntry.swift */; };
 		9DFB23BF19F32EC700D52174 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFB23BE19F32EC700D52174 /* AppDelegate.swift */; };
 		9DFB23C119F32EC700D52174 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFB23C019F32EC700D52174 /* ViewController.swift */; };
 		9DFB23C419F32EC700D52174 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DFB23C219F32EC700D52174 /* Main.storyboard */; };
@@ -32,6 +34,8 @@
 /* Begin PBXFileReference section */
 		9D4499DA19F33BFD005B1F16 /* EnterDataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnterDataViewController.swift; sourceTree = "<group>"; };
 		9D4499DC19F33FBB005B1F16 /* EventLogModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventLogModel.swift; sourceTree = "<group>"; };
+		9DC81F2919F4C40A00C9AF91 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		9DC81F2B19F4C47100C9AF91 /* LogEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogEntry.swift; sourceTree = "<group>"; };
 		9DFB23B919F32EC700D52174 /* Ping Me 3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ping Me 3.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DFB23BD19F32EC700D52174 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9DFB23BE19F32EC700D52174 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -89,6 +93,8 @@
 				9DFB23C019F32EC700D52174 /* ViewController.swift */,
 				AB3837DF19F35ED700EF0830 /* PingTimerModel.swift */,
 				9DFB23C219F32EC700D52174 /* Main.storyboard */,
+				9DC81F2819F4C40A00C9AF91 /* Model.xcdatamodeld */,
+				9DC81F2B19F4C47100C9AF91 /* LogEntry.swift */,
 				9D4499DA19F33BFD005B1F16 /* EnterDataViewController.swift */,
 				9DFB23DE19F32F6800D52174 /* EventLogViewController.swift */,
 				9D4499DC19F33FBB005B1F16 /* EventLogModel.swift */,
@@ -227,7 +233,9 @@
 				9DFB23C119F32EC700D52174 /* ViewController.swift in Sources */,
 				AB3837E019F35ED700EF0830 /* PingTimerModel.swift in Sources */,
 				9D4499DD19F33FBB005B1F16 /* EventLogModel.swift in Sources */,
+				9DC81F2A19F4C40A00C9AF91 /* Model.xcdatamodeld in Sources */,
 				9DFB23DF19F32F6800D52174 /* EventLogViewController.swift in Sources */,
+				9DC81F2C19F4C47100C9AF91 /* LogEntry.swift in Sources */,
 				9DFB23BF19F32EC700D52174 /* AppDelegate.swift in Sources */,
 				9D4499DB19F33BFD005B1F16 /* EnterDataViewController.swift in Sources */,
 			);
@@ -433,6 +441,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		9DC81F2819F4C40A00C9AF91 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				9DC81F2919F4C40A00C9AF91 /* Model.xcdatamodel */,
+			);
+			currentVersion = 9DC81F2919F4C40A00C9AF91 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 9DFB23B119F32EC700D52174 /* Project object */;
 }
