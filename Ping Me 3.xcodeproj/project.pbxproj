@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9D2413CC19F61A6100299062 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2413CB19F61A6100299062 /* Tag.swift */; };
 		9D4499DB19F33BFD005B1F16 /* EnterDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4499DA19F33BFD005B1F16 /* EnterDataViewController.swift */; };
 		9D4499DD19F33FBB005B1F16 /* EventLogModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4499DC19F33FBB005B1F16 /* EventLogModel.swift */; };
 		9DC81F2A19F4C40A00C9AF91 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9DC81F2819F4C40A00C9AF91 /* Model.xcdatamodeld */; };
@@ -32,6 +33,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9D2413CB19F61A6100299062 /* Tag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		9D4499DA19F33BFD005B1F16 /* EnterDataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnterDataViewController.swift; sourceTree = "<group>"; };
 		9D4499DC19F33FBB005B1F16 /* EventLogModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventLogModel.swift; sourceTree = "<group>"; };
 		9DC81F2919F4C40A00C9AF91 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 				AB3837DF19F35ED700EF0830 /* PingTimerModel.swift */,
 				9DFB23C219F32EC700D52174 /* Main.storyboard */,
 				9DC81F2819F4C40A00C9AF91 /* Model.xcdatamodeld */,
+				9D2413CB19F61A6100299062 /* Tag.swift */,
 				9DC81F2B19F4C47100C9AF91 /* LogEntry.swift */,
 				9D4499DA19F33BFD005B1F16 /* EnterDataViewController.swift */,
 				9DFB23DE19F32F6800D52174 /* EventLogViewController.swift */,
@@ -232,6 +235,7 @@
 			files = (
 				9DFB23C119F32EC700D52174 /* ViewController.swift in Sources */,
 				AB3837E019F35ED700EF0830 /* PingTimerModel.swift in Sources */,
+				9D2413CC19F61A6100299062 /* Tag.swift in Sources */,
 				9D4499DD19F33FBB005B1F16 /* EventLogModel.swift in Sources */,
 				9DC81F2A19F4C40A00C9AF91 /* Model.xcdatamodeld in Sources */,
 				9DFB23DF19F32F6800D52174 /* EventLogViewController.swift in Sources */,

@@ -23,6 +23,35 @@ class ViewController: UIViewController {
         localNotification.alertBody = "Woww it works!!"
         localNotification.fireDate = NSDate(timeIntervalSinceNow: 10)
         UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
+  
+        var managedObjectContext : NSManagedObjectContext? = {
+            let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+            if let managedObjectContext = appDelegate.managedObjectContext {
+                return managedObjectContext
+            }
+            else {
+                return nil
+            }
+            }()
+        
+        let fetchRequest = NSFetchRequest(entityName: "LogEntry")
+        if var fetchResults = managedObjectContext!.executeFetchRequest(fetchRequest, error: nil) as? [LogEntry] {
+            println("fetch log entry")
+            for result in fetchResults {
+                println(result.tag)
+                println(result.date)
+            }
+        }
+        
+        let fetchRequest2 = NSFetchRequest(entityName: "Tag")
+        if var fetchResults = managedObjectContext!.executeFetchRequest(fetchRequest2, error: nil) as? [Tag] {
+            println("fetch tags")
+            for result in fetchResults {
+                println(result.name)
+                println(result.frequency)
+            }
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {

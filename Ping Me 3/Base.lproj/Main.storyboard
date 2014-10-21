@@ -115,12 +115,24 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="2Ob-cX-LX1">
+                                <rect key="frame" x="16" y="66" width="568" height="482"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="NKa-HO-ERv" id="4b5-XT-392"/>
+                                    <outlet property="delegate" destination="NKa-HO-ERv" id="aya-G1-Zao"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Voc-uT-pTJ" firstAttribute="top" secondItem="U1r-HM-KQX" secondAttribute="bottom" constant="8" id="51S-rH-GW0"/>
+                            <constraint firstItem="Sff-k8-A93" firstAttribute="top" secondItem="2Ob-cX-LX1" secondAttribute="bottom" constant="8" id="79g-zd-ED1"/>
+                            <constraint firstItem="2Ob-cX-LX1" firstAttribute="leading" secondItem="ZTG-Mt-XhN" secondAttribute="leadingMargin" id="T5X-Vn-fTv"/>
+                            <constraint firstItem="2Ob-cX-LX1" firstAttribute="top" secondItem="Voc-uT-pTJ" secondAttribute="bottom" constant="8" id="TOg-tJ-pUr"/>
                             <constraint firstItem="Voc-uT-pTJ" firstAttribute="leading" secondItem="ZTG-Mt-XhN" secondAttribute="leadingMargin" id="YaM-be-YoG"/>
                             <constraint firstItem="Voc-uT-pTJ" firstAttribute="trailing" secondItem="ZTG-Mt-XhN" secondAttribute="trailingMargin" id="jGf-dz-Xzi"/>
+                            <constraint firstItem="2Ob-cX-LX1" firstAttribute="trailing" secondItem="ZTG-Mt-XhN" secondAttribute="trailingMargin" id="qfY-B1-DSi"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -134,6 +146,7 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="doingText" destination="Voc-uT-pTJ" id="Ogo-78-3kw"/>
+                        <outlet property="tableView" destination="2Ob-cX-LX1" id="wlJ-FD-Gta"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zCI-QS-wXs" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -143,6 +156,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="8RN-p8-eoh"/>
-        <segue reference="vHS-Hy-aM1"/>
+        <segue reference="3zX-KN-xt7"/>
     </inferredMetricsTieBreakers>
 </document>
