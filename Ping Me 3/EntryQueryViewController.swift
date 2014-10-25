@@ -9,11 +9,10 @@
 import UIKit
 import CoreData
 
-class EnterDataViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class EntryQueryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet var doingText : UITextField!
     @IBOutlet var tableView: UITableView!
-    var eventLog = EventLogModel.shared()
     var persistentTags: [Tag] = []
 
     override func viewDidLoad() {
@@ -45,7 +44,6 @@ class EnterDataViewController: UIViewController, UITableViewDelegate, UITableVie
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
-        eventLog.pushEvent(doingText.text)
         var managedObjectContext : NSManagedObjectContext? = {
             let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
             if let managedObjectContext = appDelegate.managedObjectContext {
@@ -56,7 +54,7 @@ class EnterDataViewController: UIViewController, UITableViewDelegate, UITableVie
             }
             }()
         
-        let newItem = NSEntityDescription.insertNewObjectForEntityForName("LogEntry", inManagedObjectContext: managedObjectContext!) as LogEntry
+        let newItem = NSEntityDescription.insertNewObjectForEntityForName("Entry", inManagedObjectContext: managedObjectContext!) as Entry
         newItem.date = NSDate()
         newItem.tag = doingText.text
         
@@ -98,5 +96,10 @@ class EnterDataViewController: UIViewController, UITableViewDelegate, UITableVie
         let entry = self.persistentTags[indexPath.row]
         cell.textLabel!.text = entry.name
         return cell
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let cell = tableView.cellForRowAtIndexPath(indexPath) as UITableViewCell?
+        doingText.text = cell?.textLabel?.text
     }
 }

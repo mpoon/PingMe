@@ -13,7 +13,7 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var powerState = false
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         //registering for sending user various kinds of notifications
@@ -53,10 +53,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             navController.performSegueWithIdentifier("Alert to What", sender: self)
         }
         else {
-            let alertController: UIAlertController = UIAlertController(title: "Alert", message: "asdf", preferredStyle: .Alert)
-            alertController.addAction(UIAlertAction(title: "ok", style: .Default, handler: navigateToWhatYouDoing))
-            let navController = application.windows[0].rootViewController as UINavigationController
-            navController.presentViewController(alertController, animated: true, completion: nil)
+            if powerState {
+                let alertController: UIAlertController = UIAlertController(title: "Alert", message: "asdf", preferredStyle: .Alert)
+                alertController.addAction(UIAlertAction(title: "ok", style: .Default, handler: navigateToWhatYouDoing))
+                let navController = application.windows[0].rootViewController as UINavigationController
+                navController.presentViewController(alertController, animated: true, completion: nil)
+            }
         }
     }
     
@@ -76,7 +78,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     lazy var managedObjectModel: NSManagedObjectModel = {
         // The managed object model for the application. This property is not optional. It is a fatal error for the application not to be able to find and load its model.
-        let modelURL = NSBundle.mainBundle().URLForResource("Model", withExtension: "momd")!
+        let modelURL = NSBundle.mainBundle().URLForResource("UserData", withExtension: "momd")!
         return NSManagedObjectModel(contentsOfURL: modelURL)
         }()
     

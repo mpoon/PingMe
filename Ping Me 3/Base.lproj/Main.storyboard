@@ -5,10 +5,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Home-->
+        <!--Home Screen-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController title="Home" id="vXZ-lx-hvc" customClass="ViewController" customModule="Ping_Me_3" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Home Screen" id="vXZ-lx-hvc" customClass="HomeScreenViewController" customModule="Ping_Me_3" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -18,8 +18,8 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IM5-If-t9i">
-                                <rect key="frame" x="269" y="20" width="63" height="30"/>
-                                <state key="normal" title="View Log">
+                                <rect key="frame" x="266" y="64" width="86" height="30"/>
+                                <state key="normal" title="View History">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -27,26 +27,45 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="moH-Oo-461">
-                                <rect key="frame" x="269" y="58" width="63" height="30"/>
-                                <state key="normal" title="Add Item">
+                                <rect key="frame" x="266" y="102" width="68" height="30"/>
+                                <state key="normal" title="Add Entry">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <segue destination="NKa-HO-ERv" kind="show" id="8RN-p8-eoh"/>
                                 </connections>
                             </button>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="zpi-Tp-jyn">
+                                <rect key="frame" x="276" y="140" width="51" height="31"/>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Off" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jWG-PT-4WK">
+                                <rect key="frame" x="245" y="145" width="23" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="zpi-Tp-jyn" firstAttribute="leading" secondItem="jWG-PT-4WK" secondAttribute="trailing" constant="8" symbolic="YES" id="CgB-UY-JzE"/>
+                            <constraint firstItem="zpi-Tp-jyn" firstAttribute="top" secondItem="moH-Oo-461" secondAttribute="bottom" constant="8" id="DCY-XM-bSJ"/>
                             <constraint firstItem="moH-Oo-461" firstAttribute="leading" secondItem="IM5-If-t9i" secondAttribute="leading" id="Jec-NC-bK0"/>
                             <constraint firstItem="moH-Oo-461" firstAttribute="top" secondItem="IM5-If-t9i" secondAttribute="bottom" constant="8" id="b1Y-sh-agR"/>
+                            <constraint firstItem="zpi-Tp-jyn" firstAttribute="leading" secondItem="jWG-PT-4WK" secondAttribute="trailing" constant="8" id="bsI-YA-wHA"/>
                             <constraint firstItem="IM5-If-t9i" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="c6A-Dx-r5D"/>
+                            <constraint firstItem="jWG-PT-4WK" firstAttribute="top" secondItem="moH-Oo-461" secondAttribute="bottom" constant="13" id="iBT-E9-CIg"/>
+                            <constraint firstItem="zpi-Tp-jyn" firstAttribute="centerX" secondItem="moH-Oo-461" secondAttribute="centerX" id="iq3-2f-Ys2"/>
+                            <constraint firstItem="zpi-Tp-jyn" firstAttribute="centerY" secondItem="jWG-PT-4WK" secondAttribute="centerY" id="kxT-RV-eqD"/>
                             <constraint firstItem="moH-Oo-461" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="wSa-iZ-tiD"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Ping Me" id="88L-Tm-hPZ">
                         <barButtonItem key="backBarButtonItem" title="Back" id="36r-pB-2qg"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="powerLabel" destination="jWG-PT-4WK" id="bc0-E0-ope"/>
+                        <outlet property="powerSwitch" destination="zpi-Tp-jyn" id="Cna-JG-lxl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
@@ -69,16 +88,16 @@
             </objects>
             <point key="canvasLocation" x="-65" y="-421"/>
         </scene>
-        <!--Event Log-->
+        <!--History Log-->
         <scene sceneID="AaA-gP-TRb">
             <objects>
-                <tableViewController title="Event Log" id="SvJ-B5-ofd" customClass="EventLogViewController" customModule="Ping_Me_3" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="History Log" id="SvJ-B5-ofd" customClass="HistoryLogViewController" customModule="Ping_Me_3" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="f15-6R-IBy">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Log Entry" id="v88-XE-t3y">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Historical Entries" id="v88-XE-t3y">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="v88-XE-t3y" id="1wm-b0-Brc">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -98,10 +117,10 @@
             </objects>
             <point key="canvasLocation" x="-65" y="1181"/>
         </scene>
-        <!--What are you doing-->
+        <!--Entry Query-->
         <scene sceneID="9fo-pf-L0A">
             <objects>
-                <viewController title="What are you doing" id="NKa-HO-ERv" customClass="EnterDataViewController" customModule="Ping_Me_3" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Entry Query" id="NKa-HO-ERv" customClass="EntryQueryViewController" customModule="Ping_Me_3" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="U1r-HM-KQX"/>
                         <viewControllerLayoutGuide type="bottom" id="Sff-k8-A93"/>

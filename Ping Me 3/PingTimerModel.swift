@@ -30,7 +30,7 @@ class PingTimerModel {
             var rand = Float(arc4random()) / Float(UINT32_MAX)
             
            // rand()
-            println(log(rand) * 60.0 * -1)
+            //println(log(rand) * 60.0 * -1)
             
            /// log(<#x: Double#>)
             

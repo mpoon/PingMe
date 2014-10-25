@@ -7,18 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9D2413CC19F61A6100299062 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2413CB19F61A6100299062 /* Tag.swift */; };
-		9D4499DB19F33BFD005B1F16 /* EnterDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4499DA19F33BFD005B1F16 /* EnterDataViewController.swift */; };
-		9D4499DD19F33FBB005B1F16 /* EventLogModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4499DC19F33FBB005B1F16 /* EventLogModel.swift */; };
-		9DC81F2A19F4C40A00C9AF91 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9DC81F2819F4C40A00C9AF91 /* Model.xcdatamodeld */; };
-		9DC81F2C19F4C47100C9AF91 /* LogEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC81F2B19F4C47100C9AF91 /* LogEntry.swift */; };
+		9D2413CF19FB9F6500299062 /* UserData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9D2413CD19FB9F6500299062 /* UserData.xcdatamodeld */; };
+		9D2413D119FB9FDE00299062 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2413D019FB9FDE00299062 /* Tag.swift */; };
+		9D2413D319FB9FDF00299062 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2413D219FB9FDF00299062 /* Entry.swift */; };
+		9D4499DB19F33BFD005B1F16 /* EntryQueryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4499DA19F33BFD005B1F16 /* EntryQueryViewController.swift */; };
 		9DFB23BF19F32EC700D52174 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFB23BE19F32EC700D52174 /* AppDelegate.swift */; };
-		9DFB23C119F32EC700D52174 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFB23C019F32EC700D52174 /* ViewController.swift */; };
+		9DFB23C119F32EC700D52174 /* HomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFB23C019F32EC700D52174 /* HomeScreenViewController.swift */; };
 		9DFB23C419F32EC700D52174 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DFB23C219F32EC700D52174 /* Main.storyboard */; };
 		9DFB23C619F32EC700D52174 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DFB23C519F32EC700D52174 /* Images.xcassets */; };
 		9DFB23C919F32EC700D52174 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DFB23C719F32EC700D52174 /* LaunchScreen.xib */; };
 		9DFB23D519F32EC700D52174 /* Ping_Me_3Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFB23D419F32EC700D52174 /* Ping_Me_3Tests.swift */; };
-		9DFB23DF19F32F6800D52174 /* EventLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFB23DE19F32F6800D52174 /* EventLogViewController.swift */; };
+		9DFB23DF19F32F6800D52174 /* HistoryLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFB23DE19F32F6800D52174 /* HistoryLogViewController.swift */; };
 		AB3837E019F35ED700EF0830 /* PingTimerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3837DF19F35ED700EF0830 /* PingTimerModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -33,22 +32,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		9D2413CB19F61A6100299062 /* Tag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
-		9D4499DA19F33BFD005B1F16 /* EnterDataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnterDataViewController.swift; sourceTree = "<group>"; };
-		9D4499DC19F33FBB005B1F16 /* EventLogModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventLogModel.swift; sourceTree = "<group>"; };
-		9DC81F2919F4C40A00C9AF91 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
-		9DC81F2B19F4C47100C9AF91 /* LogEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogEntry.swift; sourceTree = "<group>"; };
+		9D2413CE19FB9F6500299062 /* UserData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UserData.xcdatamodel; sourceTree = "<group>"; };
+		9D2413D019FB9FDE00299062 /* Tag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
+		9D2413D219FB9FDF00299062 /* Entry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
+		9D4499DA19F33BFD005B1F16 /* EntryQueryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryQueryViewController.swift; sourceTree = "<group>"; };
 		9DFB23B919F32EC700D52174 /* Ping Me 3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ping Me 3.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DFB23BD19F32EC700D52174 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9DFB23BE19F32EC700D52174 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9DFB23C019F32EC700D52174 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9DFB23C019F32EC700D52174 /* HomeScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewController.swift; sourceTree = "<group>"; };
 		9DFB23C319F32EC700D52174 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9DFB23C519F32EC700D52174 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		9DFB23C819F32EC700D52174 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		9DFB23CE19F32EC700D52174 /* Ping Me 3Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Ping Me 3Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DFB23D319F32EC700D52174 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9DFB23D419F32EC700D52174 /* Ping_Me_3Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ping_Me_3Tests.swift; sourceTree = "<group>"; };
-		9DFB23DE19F32F6800D52174 /* EventLogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventLogViewController.swift; sourceTree = "<group>"; };
+		9DFB23DE19F32F6800D52174 /* HistoryLogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryLogViewController.swift; sourceTree = "<group>"; };
 		AB3837DF19F35ED700EF0830 /* PingTimerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PingTimerModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -92,15 +90,14 @@
 			isa = PBXGroup;
 			children = (
 				9DFB23BE19F32EC700D52174 /* AppDelegate.swift */,
-				9DFB23C019F32EC700D52174 /* ViewController.swift */,
+				9DFB23C019F32EC700D52174 /* HomeScreenViewController.swift */,
 				AB3837DF19F35ED700EF0830 /* PingTimerModel.swift */,
 				9DFB23C219F32EC700D52174 /* Main.storyboard */,
-				9DC81F2819F4C40A00C9AF91 /* Model.xcdatamodeld */,
-				9D2413CB19F61A6100299062 /* Tag.swift */,
-				9DC81F2B19F4C47100C9AF91 /* LogEntry.swift */,
-				9D4499DA19F33BFD005B1F16 /* EnterDataViewController.swift */,
-				9DFB23DE19F32F6800D52174 /* EventLogViewController.swift */,
-				9D4499DC19F33FBB005B1F16 /* EventLogModel.swift */,
+				9D2413CD19FB9F6500299062 /* UserData.xcdatamodeld */,
+				9D2413D219FB9FDF00299062 /* Entry.swift */,
+				9D2413D019FB9FDE00299062 /* Tag.swift */,
+				9D4499DA19F33BFD005B1F16 /* EntryQueryViewController.swift */,
+				9DFB23DE19F32F6800D52174 /* HistoryLogViewController.swift */,
 				9DFB23C519F32EC700D52174 /* Images.xcassets */,
 				9DFB23C719F32EC700D52174 /* LaunchScreen.xib */,
 				9DFB23BC19F32EC700D52174 /* Supporting Files */,
@@ -233,15 +230,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9DFB23C119F32EC700D52174 /* ViewController.swift in Sources */,
+				9D2413D319FB9FDF00299062 /* Entry.swift in Sources */,
+				9D2413CF19FB9F6500299062 /* UserData.xcdatamodeld in Sources */,
+				9DFB23C119F32EC700D52174 /* HomeScreenViewController.swift in Sources */,
 				AB3837E019F35ED700EF0830 /* PingTimerModel.swift in Sources */,
-				9D2413CC19F61A6100299062 /* Tag.swift in Sources */,
-				9D4499DD19F33FBB005B1F16 /* EventLogModel.swift in Sources */,
-				9DC81F2A19F4C40A00C9AF91 /* Model.xcdatamodeld in Sources */,
-				9DFB23DF19F32F6800D52174 /* EventLogViewController.swift in Sources */,
-				9DC81F2C19F4C47100C9AF91 /* LogEntry.swift in Sources */,
+				9D2413D119FB9FDE00299062 /* Tag.swift in Sources */,
+				9DFB23DF19F32F6800D52174 /* HistoryLogViewController.swift in Sources */,
 				9DFB23BF19F32EC700D52174 /* AppDelegate.swift in Sources */,
-				9D4499DB19F33BFD005B1F16 /* EnterDataViewController.swift in Sources */,
+				9D4499DB19F33BFD005B1F16 /* EntryQueryViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -447,13 +443,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		9DC81F2819F4C40A00C9AF91 /* Model.xcdatamodeld */ = {
+		9D2413CD19FB9F6500299062 /* UserData.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				9DC81F2919F4C40A00C9AF91 /* Model.xcdatamodel */,
+				9D2413CE19FB9F6500299062 /* UserData.xcdatamodel */,
 			);
-			currentVersion = 9DC81F2919F4C40A00C9AF91 /* Model.xcdatamodel */;
-			path = Model.xcdatamodeld;
+			currentVersion = 9D2413CE19FB9F6500299062 /* UserData.xcdatamodel */;
+			path = UserData.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

@@ -9,10 +9,9 @@
 import UIKit
 import CoreData
 
-class EventLogViewController: UITableViewController {
+class HistoryLogViewController: UITableViewController {
     
-    var eventLog = EventLogModel.shared()
-    var persistentEventLog: [LogEntry] = []
+    var persistentEventLog: [Entry] = []
     var dateFormatter = NSDateFormatter()
     
     override func viewDidLoad() {
@@ -37,8 +36,8 @@ class EventLogViewController: UITableViewController {
             }
             }()
         
-        let fetchRequest = NSFetchRequest(entityName: "LogEntry")
-        if let fetchResults = managedObjectContext!.executeFetchRequest(fetchRequest, error: nil) as? [LogEntry] {
+        let fetchRequest = NSFetchRequest(entityName: "Entry" as NSString)
+        if let fetchResults = managedObjectContext!.executeFetchRequest(fetchRequest, error: nil) as? [Entry] {
             persistentEventLog = fetchResults
             persistentEventLog.sort({
                 item1, item2 in
@@ -71,7 +70,7 @@ class EventLogViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Log Entry", forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("Historical Entries", forIndexPath: indexPath) as UITableViewCell
 
         // Configure the cell...
 //        let entry = self.eventLog.events[indexPath.row]
