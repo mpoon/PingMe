@@ -10,51 +10,34 @@ import UIKit
 import CoreData
 
 class HomeScreenViewController: UIViewController {
-    
+    let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
     var pingTimer = PingTimerModel()
     @IBOutlet var powerLabel: UILabel!
     @IBOutlet var powerSwitch: UISwitch!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         
-        powerSwitch.addTarget(self, action: Selector("stateChanged:"), forControlEvents: UIControlEvents.ValueChanged)
-        
-        if powerSwitch.on {
-            var localNotification:UILocalNotification = UILocalNotification()
-            localNotification.alertAction = "Testing notidfications on iOS8"
-            localNotification.alertBody = "Woww it works!!"
-            localNotification.fireDate = NSDate(timeIntervalSinceNow: 10)
-            UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
-        }
-  
-        var managedObjectContext : NSManagedObjectContext? = {
-            let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
-            if let managedObjectContext = appDelegate.managedObjectContext {
-                return managedObjectContext
-            }
-            else {
-                return nil
-            }
-            }()
+        powerSwitch.addTarget(self, action: Selector("powerStateChanged:"), forControlEvents: UIControlEvents.ValueChanged)
     }
-    func stateChanged(switchState: UISwitch) {
-        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+    func powerStateChanged(switchState: UISwitch) {
         if powerSwitch.on {
             powerLabel.text = "On"
-            appDelegate.powerState = true
+            self.appDelegate.powerState = true
+            
+            scheduleLocalNotifications()
         } else {
             powerLabel.text = "Off"
-            appDelegate.powerState = false
+            self.appDelegate.powerState = false
         }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
     
+    func scheduleLocalNotifications() {
+        var localNotification:UILocalNotification = UILocalNotification()
+        localNotification.alertAction = "Testing notifications on iOS8"
+        localNotification.alertBody = "What are you doing right now?"
+        localNotification.fireDate = NSDate(timeIntervalSinceNow: 10)
+        UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
+    }
 }
 

@@ -68,6 +68,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9D2413D419FBA85700299062 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				9D4499DA19F33BFD005B1F16 /* EntryQueryViewController.swift */,
+				9DFB23DE19F32F6800D52174 /* HistoryLogViewController.swift */,
+				9DFB23C019F32EC700D52174 /* HomeScreenViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		9D2413D519FBA86D00299062 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AB3837DF19F35ED700EF0830 /* PingTimerModel.swift */,
+				9D2413CD19FB9F6500299062 /* UserData.xcdatamodeld */,
+				9D2413D219FB9FDF00299062 /* Entry.swift */,
+				9D2413D019FB9FDE00299062 /* Tag.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		9DFB23B019F32EC700D52174 = {
 			isa = PBXGroup;
 			children = (
@@ -89,15 +110,10 @@
 		9DFB23BB19F32EC700D52174 /* Ping Me 3 */ = {
 			isa = PBXGroup;
 			children = (
+				9D2413D519FBA86D00299062 /* Models */,
+				9D2413D419FBA85700299062 /* Controllers */,
 				9DFB23BE19F32EC700D52174 /* AppDelegate.swift */,
-				9DFB23C019F32EC700D52174 /* HomeScreenViewController.swift */,
-				AB3837DF19F35ED700EF0830 /* PingTimerModel.swift */,
 				9DFB23C219F32EC700D52174 /* Main.storyboard */,
-				9D2413CD19FB9F6500299062 /* UserData.xcdatamodeld */,
-				9D2413D219FB9FDF00299062 /* Entry.swift */,
-				9D2413D019FB9FDE00299062 /* Tag.swift */,
-				9D4499DA19F33BFD005B1F16 /* EntryQueryViewController.swift */,
-				9DFB23DE19F32F6800D52174 /* HistoryLogViewController.swift */,
 				9DFB23C519F32EC700D52174 /* Images.xcassets */,
 				9DFB23C719F32EC700D52174 /* LaunchScreen.xib */,
 				9DFB23BC19F32EC700D52174 /* Supporting Files */,

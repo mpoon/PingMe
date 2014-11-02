@@ -14,58 +14,29 @@ class EntryQueryViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet var doingText : UITextField!
     @IBOutlet var tableView: UITableView!
     var persistentTags: [Tag] = []
+    let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
         
-        var managedObjectContext : NSManagedObjectContext? = {
-            let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
-            if let managedObjectContext = appDelegate.managedObjectContext {
-                return managedObjectContext
-            }
-            else {
-                return nil
-            }
-            }()
-        
         let fetchRequest = NSFetchRequest(entityName: "Tag")
-        if var fetchResults = managedObjectContext!.executeFetchRequest(fetchRequest, error: nil) as? [Tag] {
+        if var fetchResults = appDelegate.managedObjectContext!.executeFetchRequest(fetchRequest, error: nil) as? [Tag] {
             persistentTags = fetchResults
         }
-        // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
-        var managedObjectContext : NSManagedObjectContext? = {
-            let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
-            if let managedObjectContext = appDelegate.managedObjectContext {
-                return managedObjectContext
-            }
-            else {
-                return nil
-            }
-            }()
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         
-        let newItem = NSEntityDescription.insertNewObjectForEntityForName("Entry", inManagedObjectContext: managedObjectContext!) as Entry
+        let newItem = NSEntityDescription.insertNewObjectForEntityForName("Entry", inManagedObjectContext: appDelegate.managedObjectContext!) as Entry
         newItem.date = NSDate()
         newItem.tag = doingText.text
         
-//        let newItem2 = NSEntityDescription.insertNewObjectForEntityForName("Tag", inManagedObjectContext: managedObjectContext!) as Tag
-//        newItem2.frequency = 1
-//        newItem2.name = doingText.text
-        
-        managedObjectContext!.save(nil)
+        appDelegate.managedObjectContext!.save(nil)
         
         let fetchRequest = NSFetchRequest(entityName: "Tag")
-        if var fetchResults = managedObjectContext!.executeFetchRequest(fetchRequest, error: nil) as? [Tag] {
+        if var fetchResults = appDelegate.managedObjectContext!.executeFetchRequest(fetchRequest, error: nil) as? [Tag] {
             var notFound = true
             for result in fetchResults {
                 if result.name == self.doingText.text {
@@ -75,15 +46,12 @@ class EntryQueryViewController: UIViewController, UITableViewDelegate, UITableVi
                 }
             }
             if notFound {
-                let newTag = NSEntityDescription.insertNewObjectForEntityForName("Tag", inManagedObjectContext: managedObjectContext!) as Tag
+                let newTag = NSEntityDescription.insertNewObjectForEntityForName("Tag", inManagedObjectContext: appDelegate.managedObjectContext!) as Tag
                 newTag.name = doingText.text
                 newTag.frequency = 1
-                managedObjectContext!.save(nil)
+                appDelegate.managedObjectContext!.save(nil)
             }
         }
-        
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
