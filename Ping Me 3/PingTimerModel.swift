@@ -15,22 +15,22 @@ class PingTimerModel {
         return _sharedPingTimer
     }
 
-    let pollInterval:Float = 60.0
+    let pollInterval:Float = 15.0
     let timeBufferSize = 10
 
     let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
 
     init() {
-        getTimes()
+        updateTimes()
     }
     
-    func getTimes() {
+    func updateTimes() {
         var count = 0
         let fetchRequest = NSFetchRequest(entityName: "Schedule" as NSString)
         if let fetchResults = appDelegate.managedObjectContext!.executeFetchRequest(fetchRequest, error: nil) as? [Schedule] {
-              for val in fetchResults {
-                println(val.offset);
-              }
+             // for val in fetchResults {
+             //   println(val.offset);
+             // }
             count = fetchResults.count
         }
 
@@ -46,6 +46,33 @@ class PingTimerModel {
 
             count += 1
         }
+    }
+    
+    func popTimes(num: Int) -> [Float] {
+        var toReturn: [Float] = []
+        
+        let fetchRequest = NSFetchRequest(entityName: "Schedule" as NSString)
+        if let fetchResults = appDelegate.managedObjectContext!.executeFetchRequest(fetchRequest, error: nil) as? [Schedule] {
+            for val in fetchResults[0...num-1] {
+                println("deleting")
+                println(val.offset)
+                toReturn.append(val.offset)
+                appDelegate.managedObjectContext?.deleteObject(val)
+            }
+        }
+        
+        return toReturn;
+    }
+    
+    func getTimes(num: Int) -> [Float] {
+        var toReturn: [Float] = []
+
+        for index in 1...num {
+            var rand = Float(arc4random()) / Float(UINT32_MAX)
+            toReturn.append(log(rand) * pollInterval * -1)
+        }
+        
+        return toReturn
     }
 
 }
