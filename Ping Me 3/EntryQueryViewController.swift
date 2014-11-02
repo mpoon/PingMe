@@ -24,6 +24,12 @@ class EntryQueryViewController: UIViewController, UITableViewDelegate, UITableVi
         let fetchRequest = NSFetchRequest(entityName: "Tag")
         if var fetchResults = appDelegate.managedObjectContext!.executeFetchRequest(fetchRequest, error: nil) as? [Tag] {
             persistentTags = fetchResults
+            persistentTags.sort({
+                item1, item2 in
+                let freq1 = item1.frequency
+                let freq2 = item2.frequency
+                return freq1.compare(freq2) == NSComparisonResult.OrderedDescending
+            })
         }
     }
 

@@ -46,7 +46,8 @@ class HistoryLogViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("Historical Entries", forIndexPath: indexPath) as UITableViewCell
 
         let entry = self.persistentEventLog[indexPath.row]
-        cell.textLabel!.text = dateFormatter.stringFromDate(entry.date) + " " + entry.tag
+        cell.textLabel!.text = entry.tag
+        cell.detailTextLabel!.text = dateFormatter.stringFromDate(entry.date)
         return cell
     }
 }
