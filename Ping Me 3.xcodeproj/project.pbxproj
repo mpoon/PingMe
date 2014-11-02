@@ -19,6 +19,7 @@
 		9DFB23D519F32EC700D52174 /* Ping_Me_3Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFB23D419F32EC700D52174 /* Ping_Me_3Tests.swift */; };
 		9DFB23DF19F32F6800D52174 /* HistoryLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFB23DE19F32F6800D52174 /* HistoryLogViewController.swift */; };
 		AB3837E019F35ED700EF0830 /* PingTimerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3837DF19F35ED700EF0830 /* PingTimerModel.swift */; };
+		AB3837E81A06029C00EF0830 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3837E71A06029C00EF0830 /* Schedule.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		9DFB23D419F32EC700D52174 /* Ping_Me_3Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ping_Me_3Tests.swift; sourceTree = "<group>"; };
 		9DFB23DE19F32F6800D52174 /* HistoryLogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryLogViewController.swift; sourceTree = "<group>"; };
 		AB3837DF19F35ED700EF0830 /* PingTimerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PingTimerModel.swift; sourceTree = "<group>"; };
+		AB3837E71A06029C00EF0830 /* Schedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 				9D2413CD19FB9F6500299062 /* UserData.xcdatamodeld */,
 				9D2413D219FB9FDF00299062 /* Entry.swift */,
 				9D2413D019FB9FDE00299062 /* Tag.swift */,
+				AB3837E71A06029C00EF0830 /* Schedule.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -249,6 +252,7 @@
 				9D2413D319FB9FDF00299062 /* Entry.swift in Sources */,
 				9D2413CF19FB9F6500299062 /* UserData.xcdatamodeld in Sources */,
 				9DFB23C119F32EC700D52174 /* HomeScreenViewController.swift in Sources */,
+				AB3837E81A06029C00EF0830 /* Schedule.swift in Sources */,
 				AB3837E019F35ED700EF0830 /* PingTimerModel.swift in Sources */,
 				9D2413D119FB9FDE00299062 /* Tag.swift in Sources */,
 				9DFB23DF19F32F6800D52174 /* HistoryLogViewController.swift in Sources */,

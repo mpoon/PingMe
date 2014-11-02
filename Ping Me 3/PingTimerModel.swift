@@ -7,34 +7,44 @@
 //
 
 import Foundation
+import CoreData
+import UIKit
 
 class PingTimerModel {
     class func shared() -> PingTimerModel {
         return _sharedPingTimer
     }
-    
-    var times: [Int]
-    let initTime = 1413687458 // When I wrote this code. 10/19/2014 @ 2:57am in UTC
-  //  var pollInterval = 60.0
-    
+
+    let pollInterval:Float = 60.0
+    let timeBufferSize = 10
+
+    let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+
     init() {
-        times = []
-        getTimes(10)
+        getTimes()
     }
     
-    func getTimes(limit: Int) {
+    func getTimes() {
         var count = 0
+        let fetchRequest = NSFetchRequest(entityName: "Schedule" as NSString)
+        if let fetchResults = appDelegate.managedObjectContext!.executeFetchRequest(fetchRequest, error: nil) as? [Schedule] {
+              for val in fetchResults {
+                println(val.offset);
+              }
+            count = fetchResults.count
+        }
 
-        while(count < limit) {
+        while(count < timeBufferSize) {
             
             var rand = Float(arc4random()) / Float(UINT32_MAX)
-            
-           // rand()
-            //println(log(rand) * 60.0 * -1)
-            
-           /// log(<#x: Double#>)
-            
-            count = count + 1
+
+            let newItem = NSEntityDescription.insertNewObjectForEntityForName("Schedule", inManagedObjectContext: appDelegate.managedObjectContext!) as Schedule
+
+            newItem.offset = log(rand) * pollInterval * -1
+
+            appDelegate.managedObjectContext!.save(nil)
+
+            count += 1
         }
     }
 
