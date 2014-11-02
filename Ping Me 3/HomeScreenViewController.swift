@@ -24,7 +24,7 @@ class HomeScreenViewController: UIViewController {
         if powerSwitch.on {
             powerLabel.text = "On"
             self.appDelegate.powerState = true
-            
+
             scheduleLocalNotifications()
         } else {
             powerLabel.text = "Off"
@@ -33,11 +33,19 @@ class HomeScreenViewController: UIViewController {
     }
     
     func scheduleLocalNotifications() {
-        var localNotification:UILocalNotification = UILocalNotification()
-        localNotification.alertAction = "Testing notifications on iOS8"
-        localNotification.alertBody = "What are you doing right now?"
-        localNotification.fireDate = NSDate(timeIntervalSinceNow: 10)
-        UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
+        UIApplication.sharedApplication().cancelAllLocalNotifications()
+
+        var cumulativeOffset:Float = 0
+    
+        for offset in PingTimerModel.shared().getTimes(200) {
+            cumulativeOffset += offset
+
+            var localNotification:UILocalNotification = UILocalNotification()
+            localNotification.alertAction = "Testing notifications on iOS8"
+            localNotification.alertBody = "What are you doing right now? \(cumulativeOffset)"
+            localNotification.fireDate = NSDate(timeIntervalSinceNow: Double(cumulativeOffset))
+            UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
+        }
     }
 }
 
