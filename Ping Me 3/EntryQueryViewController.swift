@@ -14,6 +14,7 @@ class EntryQueryViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet var doingText : UITextField!
     @IBOutlet var tableView: UITableView!
     var persistentTags: [Tag] = []
+    var indexToEdit:Int?
     let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
 
     override func viewDidLoad() {
@@ -34,12 +35,26 @@ class EntryQueryViewController: UIViewController, UITableViewDelegate, UITableVi
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-        
-        let newItem = NSEntityDescription.insertNewObjectForEntityForName("Entry", inManagedObjectContext: appDelegate.managedObjectContext!) as Entry
-        newItem.date = NSDate()
-        newItem.tag = doingText.text
-        
-        appDelegate.managedObjectContext!.save(nil)
+        if (indexToEdit == nil) {
+            let newItem = NSEntityDescription.insertNewObjectForEntityForName("Entry", inManagedObjectContext: appDelegate.managedObjectContext!) as Entry
+            newItem.date = NSDate()
+            newItem.tag = doingText.text
+            
+            appDelegate.managedObjectContext!.save(nil)
+        } else {
+            let fetchRequest = NSFetchRequest(entityName: "Entry")
+            if var fetchResults = appDelegate.managedObjectContext!.executeFetchRequest(fetchRequest, error: nil) as? [Entry] {
+                fetchResults.sort({
+                    item1, item2 in
+                    let date1 = item1.date as NSDate
+                    let date2 = item2.date as NSDate
+                    return date1.compare(date2) == NSComparisonResult.OrderedDescending
+                })
+                fetchResults[indexToEdit!].tag = doingText.text
+                appDelegate.managedObjectContext!.save(nil)
+            }
+        }
+
         
         let fetchRequest = NSFetchRequest(entityName: "Tag")
         if var fetchResults = appDelegate.managedObjectContext!.executeFetchRequest(fetchRequest, error: nil) as? [Tag] {

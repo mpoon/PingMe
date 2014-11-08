@@ -15,7 +15,7 @@ class PingTimerModel {
         return _sharedPingTimer
     }
 
-    let pollInterval:Float = 15.0
+    let pollInterval:Float = 5.0
     let timeBufferSize = 10
 
     let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate

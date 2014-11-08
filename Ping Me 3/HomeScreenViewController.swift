@@ -29,6 +29,7 @@ class HomeScreenViewController: UIViewController {
         } else {
             powerLabel.text = "Off"
             self.appDelegate.powerState = false
+            UIApplication.sharedApplication().cancelAllLocalNotifications()
         }
     }
     

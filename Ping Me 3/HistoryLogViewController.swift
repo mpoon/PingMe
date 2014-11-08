@@ -14,7 +14,7 @@ class HistoryLogViewController: UITableViewController {
     var persistentEventLog: [Entry] = []
     var dateFormatter = NSDateFormatter()
     let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
@@ -31,6 +31,11 @@ class HistoryLogViewController: UITableViewController {
             })
         }
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        var destController = segue.destinationViewController as EntryQueryViewController
+        destController.indexToEdit = self.tableView.indexPathForCell(sender as UITableViewCell)?.row
+    }
 
     // MARK: - Table view data source
 
@@ -44,7 +49,7 @@ class HistoryLogViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Historical Entries", forIndexPath: indexPath) as UITableViewCell
-
+        cell.editing = true
         let entry = self.persistentEventLog[indexPath.row]
         cell.textLabel!.text = entry.tag
         cell.detailTextLabel!.text = dateFormatter.stringFromDate(entry.date)
