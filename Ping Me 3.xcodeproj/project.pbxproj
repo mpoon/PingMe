@@ -77,8 +77,8 @@
 			isa = PBXGroup;
 			children = (
 				9D4499DA19F33BFD005B1F16 /* EntryQueryViewController.swift */,
-				9DFB23DE19F32F6800D52174 /* HistoryLogViewController.swift */,
 				9DFB23C019F32EC700D52174 /* HomeScreenViewController.swift */,
+				9DFB23DE19F32F6800D52174 /* HistoryLogViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";

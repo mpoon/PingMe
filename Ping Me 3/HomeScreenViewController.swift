@@ -12,12 +12,17 @@ import CoreData
 class HomeScreenViewController: UIViewController {
     let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
     var pingTimer = PingTimerModel()
+    var dateFormatter = NSDateFormatter()
+
     @IBOutlet var powerLabel: UILabel!
     @IBOutlet var powerSwitch: UISwitch!
+    @IBOutlet var notificationsText: UITextView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
+        dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
+
         powerSwitch.addTarget(self, action: Selector("powerStateChanged:"), forControlEvents: UIControlEvents.ValueChanged)
     }
     func powerStateChanged(switchState: UISwitch) {
@@ -36,15 +41,25 @@ class HomeScreenViewController: UIViewController {
     func scheduleLocalNotifications() {
         UIApplication.sharedApplication().cancelAllLocalNotifications()
         
-        var date:NSDate? = PingTimerModel.shared().getFarthestDate()
+        var startDate:NSDate? = PingTimerModel.shared().getFarthestDate()
+        var date:NSDate = NSDate()
+        
+        if (startDate == nil) {
+            startDate = NSDate()
+        }
 
-        for cumulativeOffset in PingTimerModel.shared().insertTimes(40, start: date) {
+        for cumulativeOffset in PingTimerModel.shared().insertTimes(40, start: startDate) {
             var localNotification:UILocalNotification = UILocalNotification()
             localNotification.alertAction = "Testing notifications on iOS8"
-            localNotification.alertBody = "What are you doing right now? \(cumulativeOffset)"
+
+            date = NSDate(timeInterval: cumulativeOffset, sinceDate: startDate!)
+
+            localNotification.alertBody = "What are you doing right now? \(dateFormatter.stringFromDate(date))"
             localNotification.fireDate = NSDate(timeIntervalSinceNow: Double(cumulativeOffset))
             UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
         }
+        
+        notificationsText.text = "Notications Until: " + dateFormatter.stringFromDate(date)
     }
 }
 

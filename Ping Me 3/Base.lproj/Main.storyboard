@@ -17,33 +17,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IM5-If-t9i">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IM5-If-t9i">
                                 <rect key="frame" x="266" y="64" width="86" height="30"/>
                                 <state key="normal" title="View History">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="SvJ-B5-ofd" kind="show" id="6iq-9e-cB4"/>
+                                    <segue destination="SvJ-B5-ofd" kind="show" identifier="Show Log" id="6iq-9e-cB4"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="moH-Oo-461">
-                                <rect key="frame" x="266" y="102" width="68" height="30"/>
-                                <state key="normal" title="Add Entry">
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="zpi-Tp-jyn">
+                                <rect key="frame" x="276" y="140" width="51" height="31"/>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Off" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jWG-PT-4WK">
+                                <rect key="frame" x="245" y="145" width="23" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="arA-vj-CFV">
+                                <rect key="frame" x="85" y="205" width="352" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="moH-Oo-461">
+                                <rect key="frame" x="239" y="102" width="140" height="30"/>
+                                <state key="normal" title="Deprecated Button?">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <segue destination="NKa-HO-ERv" kind="show" id="8RN-p8-eoh"/>
                                 </connections>
                             </button>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="zpi-Tp-jyn">
-                                <rect key="frame" x="276" y="140" width="51" height="31"/>
-                            </switch>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Off" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jWG-PT-4WK">
-                                <rect key="frame" x="245" y="145" width="23" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -63,6 +69,7 @@
                         <barButtonItem key="backBarButtonItem" title="Back" id="36r-pB-2qg"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="notificationsText" destination="arA-vj-CFV" id="Kko-m4-jgI"/>
                         <outlet property="powerLabel" destination="jWG-PT-4WK" id="bc0-E0-ope"/>
                         <outlet property="powerSwitch" destination="zpi-Tp-jyn" id="Cna-JG-lxl"/>
                     </connections>
@@ -81,7 +88,8 @@
                     </navigationBar>
                     <connections>
                         <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="vHS-Hy-aM1"/>
-                        <segue destination="NKa-HO-ERv" kind="show" identifier="Alert to What" id="gvn-QM-Z5S"/>
+                        <segue destination="SvJ-B5-ofd" kind="show" id="cjD-tI-d8F"/>
+                        <segue destination="SvJ-B5-ofd" kind="show" identifier="Show Log" id="sVw-ln-eYn"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eog-kW-Nuv" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -173,11 +181,7 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Ping Me" id="j2j-LF-obi">
-                        <barButtonItem key="rightBarButtonItem" title="Done" id="ryN-cg-usZ">
-                            <connections>
-                                <segue destination="vXZ-lx-hvc" kind="show" id="3zX-KN-xt7"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="ryN-cg-usZ"/>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -187,11 +191,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zCI-QS-wXs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="714" y="404"/>
+            <point key="canvasLocation" x="924" y="338"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="vHS-Hy-aM1"/>
         <segue reference="8RN-p8-eoh"/>
+        <segue reference="sVw-ln-eYn"/>
     </inferredMetricsTieBreakers>
 </document>

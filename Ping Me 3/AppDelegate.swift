@@ -50,22 +50,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if(application.applicationState == UIApplicationState.Inactive) {
             let navController = self.window?.rootViewController as UINavigationController
-            navController.performSegueWithIdentifier("Alert to What", sender: self)
+            navController.performSegueWithIdentifier("Show Log", sender: self)
         }
         else {
-            if powerState {
+            //if powerState {
                 let alertController: UIAlertController = UIAlertController(title: "Alert", message: "asdf", preferredStyle: .Alert)
                 alertController.addAction(UIAlertAction(title: "ok", style: .Default, handler: navigateToWhatYouDoing))
                 let navController = application.windows[0].rootViewController as UINavigationController
                 navController.presentViewController(alertController, animated: true, completion: nil)
-            }
+            //}
         }
     }
     
     func navigateToWhatYouDoing(alertAction: UIAlertAction!) {
         
         let navController = self.window?.rootViewController as UINavigationController
-        navController.performSegueWithIdentifier("Alert to What", sender: self)
+        navController.performSegueWithIdentifier("Show Log", sender: self)
     }
     
     // MARK: - Core Data stack
