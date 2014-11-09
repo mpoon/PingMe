@@ -35,12 +35,10 @@ class HomeScreenViewController: UIViewController {
     
     func scheduleLocalNotifications() {
         UIApplication.sharedApplication().cancelAllLocalNotifications()
+        
+        var date:NSDate? = PingTimerModel.shared().getFarthestDate()
 
-        var cumulativeOffset:Float = 0
-    
-        for offset in PingTimerModel.shared().getTimes(200) {
-            cumulativeOffset += offset
-
+        for cumulativeOffset in PingTimerModel.shared().insertTimes(40, start: date) {
             var localNotification:UILocalNotification = UILocalNotification()
             localNotification.alertAction = "Testing notifications on iOS8"
             localNotification.alertBody = "What are you doing right now? \(cumulativeOffset)"

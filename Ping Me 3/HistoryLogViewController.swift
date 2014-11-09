@@ -21,6 +21,10 @@ class HistoryLogViewController: UITableViewController {
         dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
         
         let fetchRequest = NSFetchRequest(entityName: "Entry" as NSString)
+        let onlyPast = NSPredicate(format: "%K < %@", "date", NSDate())
+
+        fetchRequest.predicate = onlyPast
+
         if let fetchResults = appDelegate.managedObjectContext!.executeFetchRequest(fetchRequest, error: nil) as? [Entry] {
             persistentEventLog = fetchResults
             persistentEventLog.sort({

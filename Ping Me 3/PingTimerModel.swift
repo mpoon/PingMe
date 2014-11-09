@@ -15,61 +15,65 @@ class PingTimerModel {
         return _sharedPingTimer
     }
 
-    let pollInterval:Float = 5.0
-    let timeBufferSize = 10
+    let pollInterval:Float =  60 * 45 // 45 minutes
 
     let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
 
     init() {
-        updateTimes()
     }
     
-    func updateTimes() {
-        var count = 0
-        let fetchRequest = NSFetchRequest(entityName: "Schedule" as NSString)
-        if let fetchResults = appDelegate.managedObjectContext!.executeFetchRequest(fetchRequest, error: nil) as? [Schedule] {
-             // for val in fetchResults {
-             //   println(val.offset);
-             // }
-            count = fetchResults.count
-        }
+    func getFarthestDate() -> NSDate? {
+        var toReturn:NSDate? = nil
 
-        while(count < timeBufferSize) {
+        let fetchRequest = NSFetchRequest(entityName: "Entry")
+        if var fetchResults = appDelegate.managedObjectContext!.executeFetchRequest(fetchRequest, error: nil) as? [Entry] {
+            fetchResults.sort({
+                item1, item2 in
+                let date1 = item1.date as NSDate
+                let date2 = item2.date as NSDate
+                return date1.compare(date2) == NSComparisonResult.OrderedDescending
+            })
             
-            var rand = Float(arc4random()) / Float(UINT32_MAX)
-
-            let newItem = NSEntityDescription.insertNewObjectForEntityForName("Schedule", inManagedObjectContext: appDelegate.managedObjectContext!) as Schedule
-
-            newItem.offset = log(rand) * pollInterval * -1
-
-            appDelegate.managedObjectContext!.save(nil)
-
-            count += 1
-        }
-    }
-    
-    func popTimes(num: Int) -> [Float] {
-        var toReturn: [Float] = []
-        
-        let fetchRequest = NSFetchRequest(entityName: "Schedule" as NSString)
-        if let fetchResults = appDelegate.managedObjectContext!.executeFetchRequest(fetchRequest, error: nil) as? [Schedule] {
-            for val in fetchResults[0...num-1] {
-                println("deleting")
-                println(val.offset)
-                toReturn.append(val.offset)
-                appDelegate.managedObjectContext?.deleteObject(val)
+            if (fetchResults.count > 0) {
+                toReturn = fetchResults[0].date
+                println("farthestDate?: ", toReturn!.description)
+            }
+            else {
+                println("no future dates. now: " + NSDate().description)
             }
         }
         
-        return toReturn;
+        return toReturn
     }
-    
-    func getTimes(num: Int) -> [Float] {
-        var toReturn: [Float] = []
 
-        for index in 1...num {
+    func insertTimes(num: Int, start: NSDate?) -> [Double] {
+        var count = 0
+        var cumulativeOffset:Double = 0
+        var startDate: NSDate
+        var toReturn: [Double] = []
+        
+        if (start == nil) {
+            startDate = NSDate()
+        } else {
+            startDate = start!
+        }
+
+        while(count < num) {
+            
             var rand = Float(arc4random()) / Float(UINT32_MAX)
-            toReturn.append(log(rand) * pollInterval * -1)
+
+            let newItem = NSEntityDescription.insertNewObjectForEntityForName("Entry", inManagedObjectContext: appDelegate.managedObjectContext!) as Entry
+
+            cumulativeOffset += Double(log(rand) * pollInterval * -1)
+            toReturn.append(cumulativeOffset)
+
+            newItem.date = NSDate(timeInterval: cumulativeOffset, sinceDate: startDate)
+            newItem.tag = ""
+            appDelegate.managedObjectContext!.save(nil)
+            
+            println(newItem.date)
+
+            count += 1
         }
         
         return toReturn
