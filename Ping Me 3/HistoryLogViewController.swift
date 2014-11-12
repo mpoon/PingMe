@@ -37,8 +37,12 @@ class HistoryLogViewController: UITableViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-        var destController = segue.destinationViewController as EntryQueryViewController
-        destController.indexToEdit = self.tableView.indexPathForCell(sender as UITableViewCell)?.row
+        println(segue.identifier)
+        if (segue.identifier == "editLogItem") {
+            var destController = segue.destinationViewController as EntryQueryViewController
+            destController.indexToEdit = self.tableView.indexPathForCell(sender as UITableViewCell)?.row
+    
+        }
     }
 
     // MARK: - Table view data source

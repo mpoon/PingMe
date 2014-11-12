@@ -48,22 +48,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
         println("received")
         
+        
         if(application.applicationState == UIApplicationState.Inactive) {
-            let navController = self.window?.rootViewController as UINavigationController
-            navController.performSegueWithIdentifier("Show Log", sender: self)
+            navigateToLog(nil)
         }
         else {
             //if powerState {
                 let alertController: UIAlertController = UIAlertController(title: "Alert", message: "asdf", preferredStyle: .Alert)
-                alertController.addAction(UIAlertAction(title: "ok", style: .Default, handler: navigateToWhatYouDoing))
+                alertController.addAction(UIAlertAction(title: "ok", style: .Default, handler: navigateToLog))
                 let navController = application.windows[0].rootViewController as UINavigationController
                 navController.presentViewController(alertController, animated: true, completion: nil)
             //}
         }
     }
     
-    func navigateToWhatYouDoing(alertAction: UIAlertAction!) {
-        
+    func navigateToLog(alertAction: UIAlertAction!) {
         let navController = self.window?.rootViewController as UINavigationController
         navController.performSegueWithIdentifier("Show Log", sender: self)
     }

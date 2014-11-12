@@ -35,29 +35,25 @@ class EntryQueryViewController: UIViewController, UITableViewDelegate, UITableVi
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-        if (indexToEdit == nil) {
-            let newItem = NSEntityDescription.insertNewObjectForEntityForName("Entry", inManagedObjectContext: appDelegate.managedObjectContext!) as Entry
-            newItem.date = NSDate()
-            newItem.tag = doingText.text
-            
+        let fetchRequest = NSFetchRequest(entityName: "Entry")
+        let onlyPast = NSPredicate(format: "%K < %@", "date", NSDate())
+        
+        fetchRequest.predicate = onlyPast
+
+        if var fetchResults = appDelegate.managedObjectContext!.executeFetchRequest(fetchRequest, error: nil) as? [Entry] {
+            fetchResults.sort({
+                item1, item2 in
+                let date1 = item1.date as NSDate
+                let date2 = item2.date as NSDate
+                return date1.compare(date2) == NSComparisonResult.OrderedDescending
+            })
+            fetchResults[indexToEdit!].tag = doingText.text
             appDelegate.managedObjectContext!.save(nil)
-        } else {
-            let fetchRequest = NSFetchRequest(entityName: "Entry")
-            if var fetchResults = appDelegate.managedObjectContext!.executeFetchRequest(fetchRequest, error: nil) as? [Entry] {
-                fetchResults.sort({
-                    item1, item2 in
-                    let date1 = item1.date as NSDate
-                    let date2 = item2.date as NSDate
-                    return date1.compare(date2) == NSComparisonResult.OrderedDescending
-                })
-                fetchResults[indexToEdit!].tag = doingText.text
-                appDelegate.managedObjectContext!.save(nil)
-            }
         }
 
         
-        let fetchRequest = NSFetchRequest(entityName: "Tag")
-        if var fetchResults = appDelegate.managedObjectContext!.executeFetchRequest(fetchRequest, error: nil) as? [Tag] {
+        let tagFetchRequest = NSFetchRequest(entityName: "Tag")
+        if var fetchResults = appDelegate.managedObjectContext!.executeFetchRequest(tagFetchRequest, error: nil) as? [Tag] {
             var notFound = true
             for result in fetchResults {
                 if result.name == self.doingText.text {

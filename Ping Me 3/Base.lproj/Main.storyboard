@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="xmG-Kg-Yo9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -17,19 +17,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IM5-If-t9i">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IM5-If-t9i">
                                 <rect key="frame" x="266" y="64" width="86" height="30"/>
                                 <state key="normal" title="View History">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="SvJ-B5-ofd" kind="show" identifier="Show Log" id="6iq-9e-cB4"/>
+                                    <segue destination="frG-E6-gvV" kind="show" id="ij3-V4-qQd"/>
                                 </connections>
                             </button>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="zpi-Tp-jyn">
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="zpi-Tp-jyn">
                                 <rect key="frame" x="276" y="140" width="51" height="31"/>
                             </switch>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Off" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jWG-PT-4WK">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Off" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jWG-PT-4WK">
                                 <rect key="frame" x="245" y="145" width="23" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -41,33 +41,16 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="moH-Oo-461">
-                                <rect key="frame" x="239" y="102" width="140" height="30"/>
-                                <state key="normal" title="Deprecated Button?">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="NKa-HO-ERv" kind="show" id="8RN-p8-eoh"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="zpi-Tp-jyn" firstAttribute="leading" secondItem="jWG-PT-4WK" secondAttribute="trailing" constant="8" symbolic="YES" id="CgB-UY-JzE"/>
-                            <constraint firstItem="zpi-Tp-jyn" firstAttribute="top" secondItem="moH-Oo-461" secondAttribute="bottom" constant="8" id="DCY-XM-bSJ"/>
-                            <constraint firstItem="moH-Oo-461" firstAttribute="leading" secondItem="IM5-If-t9i" secondAttribute="leading" id="Jec-NC-bK0"/>
-                            <constraint firstItem="moH-Oo-461" firstAttribute="top" secondItem="IM5-If-t9i" secondAttribute="bottom" constant="8" id="b1Y-sh-agR"/>
                             <constraint firstItem="zpi-Tp-jyn" firstAttribute="leading" secondItem="jWG-PT-4WK" secondAttribute="trailing" constant="8" id="bsI-YA-wHA"/>
                             <constraint firstItem="IM5-If-t9i" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="c6A-Dx-r5D"/>
-                            <constraint firstItem="jWG-PT-4WK" firstAttribute="top" secondItem="moH-Oo-461" secondAttribute="bottom" constant="13" id="iBT-E9-CIg"/>
-                            <constraint firstItem="zpi-Tp-jyn" firstAttribute="centerX" secondItem="moH-Oo-461" secondAttribute="centerX" id="iq3-2f-Ys2"/>
                             <constraint firstItem="zpi-Tp-jyn" firstAttribute="centerY" secondItem="jWG-PT-4WK" secondAttribute="centerY" id="kxT-RV-eqD"/>
-                            <constraint firstItem="moH-Oo-461" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="wSa-iZ-tiD"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Ping Me" id="88L-Tm-hPZ">
-                        <barButtonItem key="backBarButtonItem" title="Back" id="36r-pB-2qg"/>
-                    </navigationItem>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="notificationsText" destination="arA-vj-CFV" id="Kko-m4-jgI"/>
                         <outlet property="powerLabel" destination="jWG-PT-4WK" id="bc0-E0-ope"/>
@@ -76,24 +59,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-65" y="404"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="xbr-iL-nfI">
-            <objects>
-                <navigationController id="xmG-Kg-Yo9" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="eSt-RM-kYD">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="vHS-Hy-aM1"/>
-                        <segue destination="NKa-HO-ERv" kind="show" identifier="Show Log" id="Et2-sI-jNg"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="eog-kW-Nuv" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-65" y="-421"/>
+            <point key="canvasLocation" x="-110" y="52"/>
         </scene>
         <!--History Log-->
         <scene sceneID="AaA-gP-TRb">
@@ -124,7 +90,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="NKa-HO-ERv" kind="show" trigger="accessoryAction" id="IXy-7l-uy9"/>
+                                    <segue destination="NKa-HO-ERv" kind="show" identifier="editLogItem" trigger="accessoryAction" id="IXy-7l-uy9"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -134,12 +100,18 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Ping Me" id="xE9-iw-t8f"/>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationItem key="navigationItem" title="Ping Me" id="xE9-iw-t8f">
+                        <barButtonItem key="leftBarButtonItem" title="Home" id="Rif-Yf-TuZ">
+                            <connections>
+                                <segue destination="vXZ-lx-hvc" kind="showDetail" identifier="" id="50g-1T-lLP"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kQU-IR-8zc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-65" y="1181"/>
+            <point key="canvasLocation" x="1463" y="-51"/>
         </scene>
         <!--Entry Query-->
         <scene sceneID="9fo-pf-L0A">
@@ -182,10 +154,11 @@
                     <navigationItem key="navigationItem" title="Ping Me" id="j2j-LF-obi">
                         <barButtonItem key="rightBarButtonItem" title="Done" id="ryN-cg-usZ">
                             <connections>
-                                <segue destination="vXZ-lx-hvc" kind="show" id="3zX-KN-xt7"/>
+                                <segue destination="SvJ-B5-ofd" kind="show" id="Kpx-lu-6g3"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="doingText" destination="Voc-uT-pTJ" id="Ogo-78-3kw"/>
@@ -194,11 +167,28 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zCI-QS-wXs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="924" y="338"/>
+            <point key="canvasLocation" x="1903" y="-143"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="E3i-EE-4Wm">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="frG-E6-gvV" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="bCS-qQ-hU3">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="SvJ-B5-ofd" kind="relationship" relationship="rootViewController" id="HtV-O7-GZZ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pgG-st-2c9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="651" y="-51"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="vHS-Hy-aM1"/>
-        <segue reference="Et2-sI-jNg"/>
+        <segue reference="Kpx-lu-6g3"/>
     </inferredMetricsTieBreakers>
 </document>
