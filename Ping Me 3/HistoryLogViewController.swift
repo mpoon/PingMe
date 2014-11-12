@@ -34,6 +34,8 @@ class HistoryLogViewController: UITableViewController {
                 return date1.compare(date2) == NSComparisonResult.OrderedDescending
             })
         }
+        
+        self.tableView.reloadData()
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
