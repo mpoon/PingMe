@@ -13,13 +13,14 @@ class EntryQueryViewController: UIViewController, UITableViewDelegate, UITableVi
     
     @IBOutlet var doingText : UITextField!
     @IBOutlet var tableView: UITableView!
+    
     var persistentTags: [Tag] = []
     var indexToEdit:Int?
     let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
         
         let fetchRequest = NSFetchRequest(entityName: "Tag")
@@ -33,13 +34,13 @@ class EntryQueryViewController: UIViewController, UITableViewDelegate, UITableVi
             })
         }
     }
-
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+    
+    @IBAction func saveAndBack() {
         let fetchRequest = NSFetchRequest(entityName: "Entry")
         let onlyPast = NSPredicate(format: "%K < %@", "date", NSDate())
         
         fetchRequest.predicate = onlyPast
-
+        
         if var fetchResults = appDelegate.managedObjectContext!.executeFetchRequest(fetchRequest, error: nil) as? [Entry] {
             fetchResults.sort({
                 item1, item2 in
@@ -50,7 +51,6 @@ class EntryQueryViewController: UIViewController, UITableViewDelegate, UITableVi
             fetchResults[indexToEdit!].tag = doingText.text
             appDelegate.managedObjectContext!.save(nil)
         }
-
         
         let tagFetchRequest = NSFetchRequest(entityName: "Tag")
         if var fetchResults = appDelegate.managedObjectContext!.executeFetchRequest(tagFetchRequest, error: nil) as? [Tag] {
@@ -69,12 +69,18 @@ class EntryQueryViewController: UIViewController, UITableViewDelegate, UITableVi
                 appDelegate.managedObjectContext!.save(nil)
             }
         }
+
+        self.navigationController?.popViewControllerAnimated(true)
+        self.navigationController?.reloadInputViews()
+    }
+
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.persistentTags.count
     }
-    
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell") as UITableViewCell

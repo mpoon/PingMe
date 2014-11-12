@@ -20,11 +20,20 @@ class HistoryLogViewController: UITableViewController {
         dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
         dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
         
+        loadTableData()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        loadTableData()
+    }
+    
+    func loadTableData() {
         let fetchRequest = NSFetchRequest(entityName: "Entry" as NSString)
         let onlyPast = NSPredicate(format: "%K < %@", "date", NSDate())
-
+        
         fetchRequest.predicate = onlyPast
-
+        
         if let fetchResults = appDelegate.managedObjectContext!.executeFetchRequest(fetchRequest, error: nil) as? [Entry] {
             persistentEventLog = fetchResults
             persistentEventLog.sort({
@@ -34,10 +43,11 @@ class HistoryLogViewController: UITableViewController {
                 return date1.compare(date2) == NSComparisonResult.OrderedDescending
             })
         }
+        
+        self.tableView.reloadData()
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-        println(segue.identifier)
         if (segue.identifier == "editLogItem") {
             var destController = segue.destinationViewController as EntryQueryViewController
             destController.indexToEdit = self.tableView.indexPathForCell(sender as UITableViewCell)?.row
