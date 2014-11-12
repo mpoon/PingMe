@@ -35,6 +35,18 @@ class HomeScreenViewController: UIViewController {
             powerLabel.text = "Off"
             self.appDelegate.powerState = false
             UIApplication.sharedApplication().cancelAllLocalNotifications()
+            
+            let fetchRequest = NSFetchRequest(entityName: "Entry" as NSString)
+            let onlyFuture = NSPredicate(format: "%K > %@", "date", NSDate())
+            
+            fetchRequest.predicate = onlyFuture
+            
+            if let fetchResults = appDelegate.managedObjectContext!.executeFetchRequest(fetchRequest, error: nil) as? [Entry] {
+                for entry in fetchResults {
+                    appDelegate.managedObjectContext!.deleteObject(entry)
+                }
+            }
+            appDelegate.managedObjectContext!.save(nil)
         }
     }
     
