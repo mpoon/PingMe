@@ -51,6 +51,7 @@ class HomeScreenViewController: UIViewController {
         for cumulativeOffset in PingTimerModel.shared().insertTimes(40, start: startDate) {
             var localNotification:UILocalNotification = UILocalNotification()
             localNotification.alertAction = "Log your status"
+            localNotification.soundName = UILocalNotificationDefaultSoundName
 
             date = NSDate(timeInterval: cumulativeOffset, sinceDate: startDate!)
 
