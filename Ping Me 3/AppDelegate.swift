@@ -46,19 +46,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
-        println("received")
-        
-        
         if(application.applicationState == UIApplicationState.Inactive) {
             navigateToLog(nil)
         }
         else {
-            //if powerState {
-                let alertController: UIAlertController = UIAlertController(title: "Alert", message: "asdf", preferredStyle: .Alert)
-                alertController.addAction(UIAlertAction(title: "ok", style: .Default, handler: navigateToLog))
-                let navController = application.windows[0].rootViewController as UINavigationController
-                navController.presentViewController(alertController, animated: true, completion: nil)
-            //}
+            let alertController: UIAlertController = UIAlertController(title: "Alert", message: "Status Time", preferredStyle: .Alert)
+            alertController.addAction(UIAlertAction(title: "ok", style: .Default, handler: navigateToLog))
+            let navController = application.windows[0].rootViewController as UINavigationController
+            navController.presentViewController(alertController, animated: true, completion: nil)
         }
     }
     

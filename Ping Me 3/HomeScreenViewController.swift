@@ -50,7 +50,7 @@ class HomeScreenViewController: UIViewController {
 
         for cumulativeOffset in PingTimerModel.shared().insertTimes(40, start: startDate) {
             var localNotification:UILocalNotification = UILocalNotification()
-            localNotification.alertAction = "Testing notifications on iOS8"
+            localNotification.alertAction = "Log your status"
 
             date = NSDate(timeInterval: cumulativeOffset, sinceDate: startDate!)
 
