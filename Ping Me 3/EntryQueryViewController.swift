@@ -57,7 +57,7 @@ class EntryQueryViewController: UIViewController, UITableViewDelegate, UITableVi
             var notFound = true
             for result in fetchResults {
                 if result.name == self.doingText.text {
-                    result.frequency = result.frequency + 1
+                    result.frequency = NSNumber(int: result.frequency.intValue + 1)
                     notFound = false
                     break
                 }
@@ -85,12 +85,12 @@ class EntryQueryViewController: UIViewController, UITableViewDelegate, UITableVi
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell") as UITableViewCell
         let entry = self.persistentTags[indexPath.row]
-        cell.textLabel!.text = entry.name
+        cell.textLabel.text = entry.name
         return cell
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let cell = tableView.cellForRowAtIndexPath(indexPath) as UITableViewCell?
-        doingText.text = cell?.textLabel?.text
+        doingText.text = cell?.textLabel.text
     }
 }
