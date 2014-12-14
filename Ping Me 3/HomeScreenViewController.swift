@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import MessageUI
 
 class HomeScreenViewController: UIViewController {
     let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
@@ -54,9 +55,10 @@ class HomeScreenViewController: UIViewController {
             localNotification.soundName = UILocalNotificationDefaultSoundName
 
             date = NSDate(timeInterval: cumulativeOffset, sinceDate: startDate!)
+            println("schedule " + dateFormatter.stringFromDate(date));
 
             localNotification.alertBody = "What are you doing right now? \(dateFormatter.stringFromDate(date))"
-            localNotification.fireDate = NSDate(timeIntervalSinceNow: Double(cumulativeOffset))
+            localNotification.fireDate = date;
             UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
         }
         

@@ -18,8 +18,12 @@ class PingTimerModel {
     let pollInterval:Float =  60 * 45 // 45 minutes
 
     let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+    
+    var dateFormatter = NSDateFormatter()
 
     init() {
+        dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
+        dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
     }
     
     func getFarthestDate() -> NSDate? {
@@ -71,7 +75,7 @@ class PingTimerModel {
             newItem.tag = ""
             appDelegate.managedObjectContext!.save(nil)
             
-            println(newItem.date)
+            println(dateFormatter.stringFromDate(newItem.date))
 
             count += 1
         }
