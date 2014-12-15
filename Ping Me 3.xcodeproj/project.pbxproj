@@ -202,11 +202,11 @@
 				TargetAttributes = {
 					9DFB23B819F32EC700D52174 = {
 						CreatedOnToolsVersion = 6.0.1;
-						DevelopmentTeam = 5W58T52YC9;
+						DevelopmentTeam = VP98MH3CFC;
 					};
 					9DFB23CD19F32EC700D52174 = {
 						CreatedOnToolsVersion = 6.0.1;
-						DevelopmentTeam = 5W58T52YC9;
+						DevelopmentTeam = VP98MH3CFC;
 						TestTargetID = 9DFB23B819F32EC700D52174;
 					};
 				};
